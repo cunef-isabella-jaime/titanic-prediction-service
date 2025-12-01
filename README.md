@@ -30,6 +30,20 @@ la supervivencia de pasajeros del Titanic a partir de un dataset público.
 5. Ejecutar el entrenamiento: python src/training.py
 6. Ejecutar un ejemplo de predicción: python src/prediction.py
 
+## Dataset
+
+Usamos el dataset público **Titanic**.
+
+Para poder ejecutar el proyecto localmente hay que:
+
+1. Descargar el CSV del Titanic desde una fuente pública (Kaggle u otro repositorio educativo).
+2. Guardarlo en la ruta `data/raw/titanic.csv` dentro del repositorio.
+3. Verificar que el archivo existe antes de ejecutar:
+
+   ```bash
+   python src/training.py
+   python src/prediction.py
+
 ## Equipo
 
 - Isabella Fabani
