@@ -1,0 +1,21 @@
+name: Bug report
+description: Reporta un bug del proyecto
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: "¿Qué pasó?"
+      description: "Describe el bug encontrado."
+      placeholder: "Ejemplo: Cuando ejecuto prediction.py se rompe porque..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Pasos para reproducirlo"
+      placeholder: "1. Ejecuté...\n2. Luego...\n3. Ocurrió..."
+    validations:
+      required: true
