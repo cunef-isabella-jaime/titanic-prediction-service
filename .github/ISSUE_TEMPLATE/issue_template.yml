@@ -1,0 +1,64 @@
+name: Reporte de Issue
+description: Usa este formulario para reportar un bug o solicitar una mejora
+title: "[ISSUE] Descripción breve del problema"
+labels: ["issue"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por enviar un Issue 🙌  
+        Por favor completa la siguiente información.
+
+  - type: input
+    id: descripcion
+    attributes:
+      label: Descripción del problema
+      description: Explica brevemente qué ocurre.
+      placeholder: "El modelo no carga…"
+    validations:
+      required: true
+
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducir
+      description: Lista los pasos para reproducir el problema.
+      placeholder: |
+        1. Ejecutar python src/training.py
+        2. Aparece error X…
+    validations:
+      required: true
+
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Comportamiento esperado
+      placeholder: "El modelo debería entrenar sin errores…"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo de issue
+      options:
+        - Bug
+        - Mejora
+        - Documentación
+        - Otro
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Versión del proyecto
+      placeholder: "v1.0.0"
+
+  - type: textarea
+    id: notas
+    attributes:
+      label: Notas adicionales
+      placeholder: "Logs, capturas, etc."
