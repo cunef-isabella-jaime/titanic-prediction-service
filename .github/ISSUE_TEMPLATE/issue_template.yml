@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Gracias por enviar un Issue 🙌  
+        Gracias por enviar un Issue 🙌
         Por favor completa la siguiente información.
 
   - type: input

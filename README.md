@@ -1,6 +1,6 @@
 # Titanic Prediction Service — Documentación del Proyecto (Tema 2)
 
-Este proyecto forma parte de la Actividad Continua del Tema 2 del curso de MLOps de CUNEF.  
+Este proyecto forma parte de la Actividad Continua del Tema 2 del curso de MLOps de CUNEF.
 El objetivo es construir un servicio reproducible de *Machine Learning* que prediga la supervivencia de pasajeros del Titanic aplicando buenas prácticas de:
 
 - Control de versiones con Git y GitHub.
@@ -69,4 +69,3 @@ flowchart TD
     E --> F[Evaluación en test]
     F --> G[Exportar modelo<br/>models/titanic_model.pkl]
     G --> H[Script de predicción<br/>src/prediction.py]
-
