@@ -4,13 +4,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
 from sklearn.metrics import accuracy_score
-
 import joblib
 
 from pathlib import Path
-def load_data(path: str) -> pd.DataFrame:"""Carga el dataset desde un CSV."""
+def load_data(path: str) -> pd.DataFrame:
+    """Carga el dataset desde un CSV."""
     df = pd.read_csv(path)
     return df
+
 def preprocess(df: pd.DataFrame):
     """
     Preprocesado muy básico:
@@ -20,13 +21,23 @@ def preprocess(df: pd.DataFrame):
     """
     target_col = "Survived"
     feature_cols = ["Pclass", "Sex", "Age", "Fare"]
-df = df[feature_cols + [target_col]].copy()
-df["Sex"] = df["Sex"].map({"male": 0, "female": 1})
-df["Age"] = df["Age"].fillna(df["Age"].median())
-df["Fare"] = df["Fare"].fillna(df["Fare"].median())
-X = df[feature_cols]
+
+    # Nos quedamos solo con las columnas que nos interesan
+    df = df[feature_cols + [target_col]].copy()
+
+    # Codificar sexo: male=0, female=1
+    df["Sex"] = df["Sex"].map({"male": 0, "female": 1})
+
+    # Rellenar nulos con la mediana
+    df["Age"] = df["Age"].fillna(df["Age"].median())
+    df["Fare"] = df["Fare"].fillna(df["Fare"].median())
+
+    # Separar X e y
+    X = df[feature_cols]
     y = df[target_col]
     return X, y
+
+
 def train_model(X, y):
     """Entrena un modelo de regresión logística sencillo."""
     from sklearn.model_selection import train_test_split
@@ -69,4 +80,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
