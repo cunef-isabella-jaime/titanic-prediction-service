@@ -1,0 +1,54 @@
+name: Build and Publish Docs
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    - name: Install dependencies
+      run: |
+        pip install jupyter-book
+
+    - name: Copy notebooks and markdowns
+      run: |
+        mkdir -p docs/
+        cp -r *.ipynb docs/ || true
+        cp -r *.md docs/ || true
+        cp -r notebooks/* docs/ || true
+
+    - name: Build Jupyter Book
+      run: |
+        jupyter-book build docs/
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: docs/_build/html
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v2
