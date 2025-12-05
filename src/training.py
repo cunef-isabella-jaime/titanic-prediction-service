@@ -8,6 +8,11 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 
+
+load_dotenv()
+semilla=os.getenv("SEED")
+
+
 # ============================
 #     VALIDACIÓN DE DATOS
 # ============================
@@ -49,7 +54,7 @@ def validate_input(df: pd.DataFrame) -> None:
 # ============================
 #     CARGA DE DATOS
 # ============================
-load_dotenv()
+
 def load_data(path: str) -> pd.DataFrame:
     """Carga el dataset desde un CSV y aplica validación."""
     df = pd.read_csv(path)
@@ -88,10 +93,10 @@ def preprocess(df: pd.DataFrame):
 def train_model(X, y):
     """Entrena un modelo de regresión logística sencillo."""
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=os.getenv("SEED")
+        X, y, test_size=0.2, random_state=semilla
     )
 
-    model = LogisticRegression(max_iter=1000, random_state=42)
+    model = LogisticRegression(max_iter=1000, random_state=semilla)
     model.fit(X_train, y_train)
 
     y_pred = model.predict(X_test)
