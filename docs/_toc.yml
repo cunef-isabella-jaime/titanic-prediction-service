@@ -1,0 +1,9 @@
+format: jb-book
+root: index
+
+chapters:
+  - file: intro
+  - file: training
+  - file: prediction
+  - file: proyecto
+  - file: report

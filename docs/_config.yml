@@ -1,0 +1,27 @@
+# Configuración del Jupyter Book
+title: "Titanic Prediction Service"
+author: "Isabella & Jaime"
+
+execute:
+  execute_notebooks: "off"
+
+html:
+  favicon: ""
+  use_issues_button: false
+  use_repository_button: true
+
+repository:
+  url: "https://github.com/cunef-isabella-jaime/titanic-prediction-service"
+  branch: main
+  path_to_book: docs/
+
+sphinx:
+  config:
+    html_theme: "sphinx_book_theme"
+    nb_execution_mode: "off"
+    latex_engine: "xelatex"
+
+parse:
+  myst_enable_extensions:
+    - colon_fence
+
